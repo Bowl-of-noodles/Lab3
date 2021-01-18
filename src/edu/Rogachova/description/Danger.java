@@ -32,19 +32,11 @@ public class Danger
     }
 
     @Override
-    public boolean equals(Object otherObject){
-        if(this == otherObject){
-            return true;
-        }
-
-        if(otherObject == null){
-            return false;
-        }
-
-        if(otherObject instanceof Danger){
-            Danger newDanger = (Danger)otherObject;
-            return this.danger.equals(newDanger.hashCode());
-        }
-        return false;
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Danger)) return false;
+        Danger danger1 = (Danger) o;
+        return Objects.equals(danger, danger1.danger);
     }
 }
