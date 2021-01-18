@@ -85,9 +85,9 @@ public class Piglet extends Character implements Worriable
         return this.getName().equals(character.getName());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getPlace());
+     @Override
+    public int hashCode(){
+        return Objects.hash(super.hashCode(), home, thoughtType, reason);
     }
 
     @Override
