@@ -32,11 +32,13 @@ public abstract class Character
     public abstract void startToThink();
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Character character = (Character) obj;
-        return name.equals(character.name) && place == character.place ;
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Character)) return false;
+        Character character = (Character) o;
+        return Objects.equals(name, character.name) &&
+                Objects.equals(place, character.place);
     }
 
     @Override
