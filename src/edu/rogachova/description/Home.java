@@ -74,9 +74,7 @@ public class Home extends Place
         if (!(o instanceof Home)) return false;
         Home home = (Home) o;
         return Objects.equals(name, home.name) &&
-                Objects.equals(isFlooded, home.isFlooded) &&
                 Objects.equals(owner, home.owner) &&
-                Objects.equals(hydrosphere, home.hydrosphere) &&
                 Objects.equals(danger, home.danger);
     }
 
@@ -84,6 +82,6 @@ public class Home extends Place
     public int hashCode()
     {
 
-        return Objects.hash(name, isFlooded, owner, hydrosphere, danger);
+        return Objects.hash(name, owner, danger);
     }
 }
