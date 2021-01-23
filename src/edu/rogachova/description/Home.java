@@ -73,15 +73,13 @@ public class Home extends Place
         if (this == o) return true;
         if (!(o instanceof Home)) return false;
         Home home = (Home) o;
-        return Objects.equals(name, home.name) &&
-                Objects.equals(owner, home.owner) &&
-                Objects.equals(danger, home.danger);
+        return this.name.equals(home.name);
     }
 
     @Override
     public int hashCode()
     {
 
-        return Objects.hash(name, owner, danger);
+        return Objects.hash(super.hashCode(), name, owner, waterType, danger);
     }
 }
