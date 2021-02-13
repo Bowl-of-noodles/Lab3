@@ -1,8 +1,10 @@
 package edu.rogachova;
 
+import edu.rogachova.ability.ReasonToWorry;
 import edu.rogachova.description.*;
 import edu.rogachova.entities.Piglet;
 import edu.rogachova.water.Flood;
+import edu.rogachova.water.WaterLevel;
 import edu.rogachova.water.Groove;
 import java.util.Scanner;
 
@@ -11,45 +13,40 @@ public class Main {
     public static void main(String[] args) {
         Piglet piglet = new Piglet("Пяточок", new Home("Дом пяточка"));
 
+        System.out.println("Введите количество канавок");
         Scanner scannerInt = new Scanner(System.in);
         int nOfGrooves = scannerInt.nextInt();
         Groove[] grooves = new Groove[nOfGrooves];
-        int howMuchVisited = 0;
 
         for(int i = 0; i < grooves.length; i++){
-            grooves[i] = new Groove(1);
+            grooves[i] = new Groove();
             String number = Integer.toString(i + 1);
             grooves[i].setName("Канавка " + number);
-            if(i % 2 == 0){
-                grooves[i].setIfVisited(true);
-                howMuchVisited++;
-            }
-            else{
-                grooves[i].setIfVisited(false);
-            }
         }
+        piglet.wasInTheWater(grooves);
 
 
-        if(howMuchVisited > 0){
-            piglet.whatSee(grooves);
-            piglet.recollectMemories();
-        }
-
-
-
+        piglet.recollectMemories();
         piglet.toBeInTheirHome();
-        Flood flood = new Flood();
+
 
         System.out.println();
+        System.out.println("Введите уровень воды");
         Scanner scannerDouble = new Scanner(System.in);
         double amountOfWater = scannerDouble.nextDouble();
-        Groove groove = new Groove(amountOfWater);
-        flood.floodStart(groove, piglet);
+        for(Groove groove: piglet.getWhatGrooveVisited())
+        {
+            groove.setnWater(amountOfWater);
+        }
 
-
-
-
-
+        WaterLevel waterLevel = new WaterLevel();
+        boolean beginingOfFlood = waterLevel.changeWaterLevel(piglet, piglet.getWhatGrooveVisited());
+        if(beginingOfFlood){
+            Danger danger = new Danger();
+            Flood flood = new Flood();
+            danger.setDanger(ReasonToWorry.FLOOD);
+            flood.startFlood(danger, piglet);
+        }
 
     }
 }
