@@ -33,8 +33,8 @@ public class River extends Hydrosphere
     @Override
     public void startToFlow()
     {
-        System.out.println("Ручьи превратились в реки");
+        System.out.println("Ручьи превратились в реку");
         nWater *= 5;
-        System.out.println("Реки наполнились водой");
+        System.out.println("Река наполнилась водой");
     }
 }
