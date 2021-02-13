@@ -1,11 +1,11 @@
 package edu.rogachova.entities;
 
+import edu.rogachova.ability.AbleToRemember;
 import edu.rogachova.description.Place;
-import edu.rogachova.water.Hydrosphere;
 
 import java.util.Objects;
 
-public abstract class Character
+public abstract class Character implements AbleToRemember
 {
     private String name;
     private Place place;
@@ -27,9 +27,13 @@ public abstract class Character
         return place;
     }
 
-    public abstract void recollectMemories();
-
     public abstract void startToThink();
+
+    @Override
+    public void recollectMemories(){
+
+    }
+
 
     @Override
     public boolean equals(Object o)
@@ -37,15 +41,13 @@ public abstract class Character
         if (this == o) return true;
         if (!(o instanceof Character)) return false;
         Character character = (Character) o;
-        return Objects.equals(name, character.name) &&
-                Objects.equals(place, character.place);
+        return Objects.equals(name, character.name);
     }
 
     @Override
     public int hashCode()
     {
-
-        return Objects.hash(name, place);
+        return Objects.hash(place);
     }
 
 
