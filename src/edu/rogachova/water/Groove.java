@@ -1,7 +1,5 @@
 package edu.rogachova.water;
 
-import edu.rogachova.ability.ReasonToWorry;
-import edu.rogachova.description.Danger;
 import edu.rogachova.description.WaterType;
 
 public class Groove extends Hydrosphere
@@ -11,9 +9,8 @@ public class Groove extends Hydrosphere
     private String name;
     private boolean isVisited;
 
-    public Groove(double amountOfWater){
+    public Groove(){
         waterType = WaterType.GROOVE;
-        nWater = amountOfWater;
     }
 
     public WaterType getWaterType()
@@ -24,6 +21,10 @@ public class Groove extends Hydrosphere
     public double getnWater()
     {
         return nWater;
+    }
+
+    public void setnWater(double nWater){
+        this.nWater = nWater;
     }
 
     public void setName(String name)
@@ -48,8 +49,7 @@ public class Groove extends Hydrosphere
     @Override
     public void startToFlow()
     {
-        System.out.println("And then the flood begin");
         nWater *= 2;
-        System.out.println("Канавки наполнились водой");
+        System.out.println("Канавка наполнилась водой");
     }
 }
