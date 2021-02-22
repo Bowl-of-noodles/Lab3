@@ -80,6 +80,6 @@ public class Home extends Place
     public int hashCode()
     {
 
-        return Objects.hash(super.hashCode(), name, owner, waterType, danger);
+        return Objects.hash(super.hashCode(), name);
     }
 }
