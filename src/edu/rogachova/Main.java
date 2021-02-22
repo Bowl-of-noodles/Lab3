@@ -39,7 +39,7 @@ public class Main {
             groove.setnWater(amountOfWater);
         }
 
-        WaterLevel waterLevel = new WaterLevel();
+        WaterLevel waterLevel = new WaterLevel(30);
         boolean beginingOfFlood = waterLevel.changeWaterLevel(piglet, piglet.getWhatGrooveVisited());
         if(beginingOfFlood){
             Danger danger = new Danger();
