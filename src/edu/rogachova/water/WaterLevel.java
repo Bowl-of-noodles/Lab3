@@ -41,4 +41,27 @@ public class WaterLevel
         }
         return beginingOfFlood;
     }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof WaterLevel)) return false;
+        WaterLevel that = (WaterLevel) o;
+        return highLevel == that.highLevel;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(highLevel);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "WaterLevel{" +
+                "highLevel=" + highLevel +
+                '}';
+    }
 }
