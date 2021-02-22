@@ -18,4 +18,28 @@ public class Flood
         piglet.getHome().setWaterType(WaterType.FLOOD);
         piglet.startToWorry();
     }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Flood)) return false;
+        Flood flood = (Flood) o;
+        return Objects.equals(danger, flood.danger);
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(danger);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Flood{" +
+                "danger=" + danger +
+                '}';
+    }
 }
