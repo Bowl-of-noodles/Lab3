@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Piglet extends Character implements Worriable, MoveableInWater
 {
 
+    private String name;
     private Home home;
     private ReasonToWorry reason;
     private Groove[] visitedGrooves;
@@ -92,19 +93,22 @@ public class Piglet extends Character implements Worriable, MoveableInWater
     }
 
 
-   @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Character character = (Character) obj;
-        return this.getName().equals(character.getName());
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Piglet)) return false;
+        if (!super.equals(o)) return false;
+        Piglet piglet = (Piglet) o;
+        return Objects.equals(getName(), piglet.getName()) &&
+                Objects.equals(getHome(), piglet.getHome());
     }
 
     @Override
     public int hashCode()
     {
 
-        return Objects.hash(super.hashCode(), home, reason);
+        return Objects.hash(super.hashCode(), getName(), getHome());
     }
 
     @Override
