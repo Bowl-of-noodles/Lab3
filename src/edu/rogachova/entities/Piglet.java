@@ -47,14 +47,13 @@ public class Piglet extends Character implements Worriable, MoveableInWater
 
     @Override
     public boolean isVisitedGroove(Groove groove){
-        boolean state = false;
         for (Groove checkedGroove : visitedGrooves)
         {
             if (checkedGroove.equals(groove)){
-                state = true;
+                return true;
             }
         }
-        return state;
+        return false;
     }
 
     @Override
