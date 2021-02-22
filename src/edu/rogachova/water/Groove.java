@@ -52,4 +52,32 @@ public class Groove extends Hydrosphere
         nWater *= 2;
         System.out.println("Канавка наполнилась водой");
     }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Groove)) return false;
+        if (!super.equals(o)) return false;
+        Groove groove = (Groove) o;
+        return isVisited == groove.isVisited &&
+                Objects.equals(name, groove.name);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(super.hashCode(), name, isVisited);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Groove{" +
+                "waterType=" + waterType +
+                ", nWater=" + nWater +
+                ", name='" + name + '\'' +
+                ", isVisited=" + isVisited +
+                '}';
+    }
 }
