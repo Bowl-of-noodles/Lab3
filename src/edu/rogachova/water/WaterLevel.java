@@ -7,8 +7,13 @@ import edu.rogachova.entities.Piglet;
 
 public class WaterLevel
 {
-    public WaterLevel(){
-
+    private int highLevel;
+    
+    public WaterLevel(int highLevel){
+         if(highLevel != 0){
+            this.highLevel = highLevel;
+        }
+        else{this.highLevel = 30;}
     }
 
     public boolean changeWaterLevel(Piglet piglet, Groove[] grooves){
@@ -24,7 +29,7 @@ public class WaterLevel
         stream.startToFlow();
         River river = new River(stream.getnWater());
         river.startToFlow();
-        if(river.getnWater()>=30){
+        if(river.getnWater() >= highLevel){
             System.out.println("Река вышла из своих берегов");
             beginingOfFlood = true;
         }
