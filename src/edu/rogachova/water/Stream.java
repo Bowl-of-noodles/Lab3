@@ -36,4 +36,31 @@ public class Stream extends Hydrosphere
         nWater *= 3;
         System.out.println("Ручьи наполнились водой");
     }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Stream)) return false;
+        if (!super.equals(o)) return false;
+        Stream stream = (Stream) o;
+        return Double.compare(stream.getnWater(), getnWater()) == 0 &&
+                getWaterType() == stream.getWaterType();
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(super.hashCode(), getWaterType(), getnWater());
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Stream{" +
+                "waterType=" + waterType +
+                ", nWater=" + nWater +
+                '}';
+    }
 }
