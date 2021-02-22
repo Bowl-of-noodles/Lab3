@@ -47,7 +47,7 @@ public abstract class Character implements AbleToRemember
     @Override
     public int hashCode()
     {
-        return Objects.hash(place);
+        return Objects.hash(name);
     }
 
 
