@@ -10,13 +10,7 @@ public class River extends Hydrosphere
 
     public River(double nWater){
         setWaterType(WaterType.RIVER);
-        if (nWater != 0)
-        {
-            this.nWater = nWater;
-        }
-        else{
-            this.nWater = 1;
-        }
+        this.nWater = (nWater == 0) ? 1 : nWater;
 
     }
     
