@@ -9,7 +9,6 @@ public class River extends Hydrosphere
     private double nWater;
 
     public River(double nWater){
-        setWaterType(WaterType.RIVER);
         this.nWater = (nWater == 0) ? 1 : nWater;
 
     }
@@ -22,6 +21,7 @@ public class River extends Hydrosphere
     @Override
     public void startToFlow()
     {
+        setWaterType(WaterType.RIVER);
         System.out.println("Ручьи превратились в реку");
         nWater *= 5;
         System.out.println("Река наполнилась водой");
