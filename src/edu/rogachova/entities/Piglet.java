@@ -1,7 +1,6 @@
 package edu.rogachova.entities;
 
 import edu.rogachova.ability.MoveableInWater;
-import edu.rogachova.ability.ReasonToWorry;
 import edu.rogachova.ability.Worriable;
 import edu.rogachova.description.Home;
 import edu.rogachova.water.Groove;
@@ -12,10 +11,7 @@ import java.util.Objects;
 
 public class Piglet extends Character implements Worriable, MoveableInWater
 {
-
-    private String name;
     private Home home;
-    private ReasonToWorry reason;
     private Groove[] visitedGrooves;
 
     public Piglet(String name, Home home){
@@ -27,7 +23,6 @@ public class Piglet extends Character implements Worriable, MoveableInWater
     public Home getHome(){
         return home;
     }
-
 
     @Override
     public void wasInTheWater(Groove[] grooves){
@@ -65,7 +60,7 @@ public class Piglet extends Character implements Worriable, MoveableInWater
 
     @Override
     public void recollectMemories(){
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
         for(int i=0; i<visitedGrooves.length; i++){
             names.add(visitedGrooves[i].getName());
         }
@@ -108,7 +103,7 @@ public class Piglet extends Character implements Worriable, MoveableInWater
     public int hashCode()
     {
 
-        return Objects.hash(super.hashCode(), getName(), getHome());
+        return Objects.hash(getName(), getHome());
     }
 
     @Override
