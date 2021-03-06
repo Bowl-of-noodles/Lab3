@@ -1,15 +1,15 @@
 package edu.rogachova.water;
 
-import edu.rogachova.description.Danger;
 import edu.rogachova.description.WaterType;
+
+import java.util.Objects;
 
 public class River extends Hydrosphere
 {
-    private WaterType waterType;
     private double nWater;
 
     public River(double nWater){
-        waterType = WaterType.RIVER;
+        setWaterType(WaterType.RIVER);
         if (nWater != 0)
         {
             this.nWater = nWater;
@@ -19,12 +19,7 @@ public class River extends Hydrosphere
         }
 
     }
-
-    public WaterType getWaterType()
-    {
-        return waterType;
-    }
-
+    
     public double getnWater()
     {
         return nWater;
@@ -37,7 +32,7 @@ public class River extends Hydrosphere
         nWater *= 5;
         System.out.println("Река наполнилась водой");
     }
-    
+
     @Override
     public boolean equals(Object o)
     {
@@ -52,14 +47,14 @@ public class River extends Hydrosphere
     @Override
     public int hashCode()
     {
-        return Objects.hash(super.hashCode(), getWaterType(), getnWater());
+        return Objects.hash(getWaterType(), getnWater());
     }
 
     @Override
     public String toString()
     {
         return "River{" +
-                "waterType=" + waterType +
+                "waterType=" + getWaterType() +
                 ", nWater=" + nWater +
                 '}';
     }
