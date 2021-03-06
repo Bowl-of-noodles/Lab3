@@ -11,7 +11,7 @@ public class Groove extends Hydrosphere
     private boolean isVisited;
 
     public Groove(){
-        setWaterType(WaterType.GROOVE);
+  
     }
     
     public double getnWater()
@@ -45,6 +45,7 @@ public class Groove extends Hydrosphere
     @Override
     public void startToFlow()
     {
+        setWaterType(WaterType.GROOVE);
         nWater *= 2;
         System.out.println("Канавка наполнилась водой");
     }
