@@ -10,13 +10,7 @@ public class Stream extends Hydrosphere
 
     public Stream(double nWater){
         setWaterType(WaterType.STREAM);
-        if (nWater != 0)
-        {
-            this.nWater = nWater;
-        }
-        else{
-            this.nWater = 1;
-        }
+        this.nWater = (nWater == 0) ? 1 : nWater;
     }
     
     public double getnWater()
