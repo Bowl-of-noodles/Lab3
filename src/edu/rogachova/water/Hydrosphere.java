@@ -22,7 +22,7 @@ public class Hydrosphere implements Flowable
         return waterType;
     }
 
-    public final void setWaterType(WaterType waterType)
+    public void setWaterType(WaterType waterType)
     {
         this.waterType = waterType;
     }
