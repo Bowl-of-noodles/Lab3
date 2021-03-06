@@ -9,7 +9,6 @@ public class Stream extends Hydrosphere
     private double nWater;
 
     public Stream(double nWater){
-        setWaterType(WaterType.STREAM);
         this.nWater = (nWater == 0) ? 1 : nWater;
     }
     
@@ -21,6 +20,7 @@ public class Stream extends Hydrosphere
     @Override
     public void startToFlow()
     {
+        setWaterType(WaterType.STREAM);
         System.out.println("Канавки стали ручьями");
         nWater *= 3;
         System.out.println("Ручьи наполнились водой");
