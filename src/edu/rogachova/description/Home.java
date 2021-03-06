@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class Home extends Place
 {
-    private String name;
     private Character owner;
     private WaterType waterType;
     private Danger danger;
@@ -61,25 +60,29 @@ public class Home extends Place
     public String toString()
     {
         return "Home{" +
-                "name='" + name + '\'' +
+                "name='" + getName() + '\'' +
                 ", owner=" + owner +
                 ", danger=" + danger +
                 '}';
     }
 
-   @Override
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
         if (!(o instanceof Home)) return false;
+        if (!super.equals(o)) return false;
         Home home = (Home) o;
-        return this.name.equals(home.name);
+        return  Objects.equals(getName(), home.getName()) && 
+                Objects.equals(getOwner(), home.getOwner()) &&
+                waterType == home.waterType &&
+                Objects.equals(danger, home.danger);
     }
 
     @Override
     public int hashCode()
     {
 
-        return Objects.hash(super.hashCode(), name);
+        return Objects.hash(getName(), getOwner(), waterType, danger);
     }
 }
