@@ -2,22 +2,18 @@ package edu.rogachova.water;
 
 import edu.rogachova.description.WaterType;
 
+import java.util.Objects;
+
 public class Groove extends Hydrosphere
 {
-    private WaterType waterType;
     private double nWater;
     private String name;
     private boolean isVisited;
 
     public Groove(){
-        waterType = WaterType.GROOVE;
+        setWaterType(WaterType.GROOVE);
     }
-
-    public WaterType getWaterType()
-    {
-        return waterType;
-    }
-
+    
     public double getnWater()
     {
         return nWater;
@@ -52,7 +48,7 @@ public class Groove extends Hydrosphere
         nWater *= 2;
         System.out.println("Канавка наполнилась водой");
     }
-    
+
     @Override
     public boolean equals(Object o)
     {
@@ -60,21 +56,23 @@ public class Groove extends Hydrosphere
         if (!(o instanceof Groove)) return false;
         if (!super.equals(o)) return false;
         Groove groove = (Groove) o;
-        return isVisited == groove.isVisited &&
-                Objects.equals(name, groove.name);
+        return Double.compare(groove.getnWater(), getnWater()) == 0 &&
+                isVisited == groove.isVisited &&
+                Objects.equals(getName(), groove.getName());
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(super.hashCode(), name, isVisited);
+
+        return Objects.hash(getnWater(), getName(), isVisited);
     }
 
     @Override
     public String toString()
     {
         return "Groove{" +
-                "waterType=" + waterType +
+                "waterType=" + getWaterType() +
                 ", nWater=" + nWater +
                 ", name='" + name + '\'' +
                 ", isVisited=" + isVisited +
