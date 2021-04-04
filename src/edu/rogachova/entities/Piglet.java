@@ -26,8 +26,8 @@ public class Piglet extends Character implements Worriable, MoveableInWater
 
     @Override
     public void wasInTheWater(Groove[] grooves){
-        //int numberOfVisited = grooves.length/2;
-        visitedGrooves = new Groove[grooves.length/2+1];
+        long numberOfVisited = Math.round((double)grooves.length/2);
+        visitedGrooves = new Groove[(int)numberOfVisited];
         int number = 0;
         for(int i = 0; i < grooves.length; i++){
             if(i % 2 == 0){
